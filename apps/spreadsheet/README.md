@@ -68,7 +68,7 @@ Or run the app on its own:
 ```bash
 cd apps/spreadsheet
 npm install
-npm run dev                      # http://localhost:5173 by default
+npm run dev                      # http://localhost:5174
 npm run build                    # type-check + production build to dist/
 npm run preview                  # serve the production build
 npm test                         # run the engine test suite once
