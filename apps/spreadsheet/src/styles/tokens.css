@@ -1,0 +1,82 @@
+:root {
+  color-scheme: light;
+
+  /* Pastel pink + teal interpretation of the reference layout. */
+  --paper: #fcf7f8;
+  --paper-deep: #f4e8eb;
+  --panel: #fffdfd;
+  --panel-soft: #fdf6f8;
+  --panel-raised: #ffffff;
+  --ink: #36272e;
+  --ink-strong: #27191f;
+  --ink-soft: #68545d;
+  --muted: #967f88;
+  --faint: #c1acb4;
+  --line: #6e3c50;
+  --line-soft: #e7d5dc;
+  --line-faint: #f1e5e9;
+  --grid: rgba(110, 60, 80, 0.072);
+  --sidebar: #4b2637;
+  --sidebar-deep: #381a28;
+  --sidebar-ink: #fbf0f4;
+  --sidebar-muted: #d8bdc8;
+  --sidebar-line: rgba(255, 242, 247, 0.15);
+
+  --pink: #f4d3df;
+  --pink-deep: #eab3c7;
+  --pink-ink: #682b43;
+  --pink-wash: #fbeef2;
+  --teal: #c9e3de;
+  --teal-deep: #a7d1ca;
+  --teal-ink: #20534e;
+  --teal-wash: #eef8f5;
+  --butter: #fbf1dc;
+  --butter-deep: #f2e0b9;
+  --rose: #a34f6b;
+  --rose-soft: #eac9d4;
+  --success: #3f715f;
+  --success-soft: #deeee7;
+  --danger: #a74445;
+  --danger-soft: #f8dede;
+  --warning: #946b25;
+  --warning-soft: #f8ebcc;
+  --selection: rgba(167, 209, 202, 0.38);
+  --focus: #4f9088;
+
+  --shadow-sm: 0 1px 1px rgba(59, 27, 40, 0.04), 0 5px 16px rgba(59, 27, 40, 0.04);
+  --shadow-md: 0 2px 2px rgba(59, 27, 40, 0.04), 0 20px 48px rgba(59, 27, 40, 0.09);
+  --shadow-sidebar: 14px 0 40px rgba(58, 26, 41, 0.12);
+
+  --font-serif: "Newsreader Variable", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-sans: "DM Sans Variable", "Avenir Next", "Segoe UI", sans-serif;
+  --font-mono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", Consolas, monospace;
+
+  --radius-xs: 6px;
+  --radius-sm: 9px;
+  --radius-md: 13px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+  --sidebar-width: 236px;
+  --content-max: 1560px;
+  --page-pad-x: clamp(20px, 3vw, 42px);
+  --page-pad-y: clamp(25px, 3.2vw, 40px);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --fast: 130ms;
+  --normal: 220ms;
+  --slow: 480ms;
+
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--teal-deep);
+  color: var(--ink-strong);
+}

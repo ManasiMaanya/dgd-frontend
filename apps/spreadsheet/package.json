@@ -1,13 +1,15 @@
 {
-  "name": "spreadsheet",
+  "name": "folio-sheet",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.3.0",
@@ -25,5 +27,9 @@
     "typescript": "~7.0.2",
     "vite": "^8.3.4",
     "vitest": "^5.0.5"
+  },
+  "description": "Spreadsheet with a custom TypeScript formula engine, dependency graph, and virtualized grid.",
+  "engines": {
+    "node": ">=20.19.0"
   }
 }
