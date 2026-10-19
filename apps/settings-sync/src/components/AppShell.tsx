@@ -14,9 +14,10 @@ interface AppShellProps {
 export function AppShell({ current, onNavigate, children }: AppShellProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
+  const navigate = (route: RouteId) => {
     setMenuOpen(false);
-  }, [current]);
+    onNavigate(route);
+  };
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -38,7 +39,7 @@ export function AppShell({ current, onNavigate, children }: AppShellProps) {
     <div className="app-shell">
       <Sidebar
         current={current}
-        onNavigate={onNavigate}
+        onNavigate={navigate}
         onClose={() => setMenuOpen(false)}
         mobileOpen={menuOpen}
       />
@@ -53,7 +54,7 @@ export function AppShell({ current, onNavigate, children }: AppShellProps) {
 
       <main className="app-main">
         <div className="mobile-bar">
-          <button className="mobile-brand" type="button" onClick={() => onNavigate("home")}>
+          <button className="mobile-brand" type="button" onClick={() => navigate("home")}>
             Atelier
             <span>Settings</span>
           </button>

@@ -9,7 +9,7 @@ import { LanguagePanel } from "../components/preferences/LanguagePanel";
 import { SyncLab } from "../components/preferences/SyncLab";
 import { SyncPanel } from "../components/preferences/SyncPanel";
 import { createTranslator } from "../preferences/i18n";
-import { usePreferences } from "../preferences/PreferencesProvider";
+import { usePreferences } from "../preferences/PreferencesContext";
 
 export function PreferencesPage() {
   const { values, record, syncInfo, setTheme, setLanguage, setFontSize, reset } =

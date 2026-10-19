@@ -1,34 +1,11 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-  type ReactNode,
-} from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 
 import { getPreferencesEngine } from "./engine";
-import type {
-  LanguageCode,
-  PreferenceKey,
-  PreferenceRecord,
-  PreferenceValues,
-  SyncInfo,
-  Theme,
-} from "./types";
-
-interface PreferencesContextValue {
-  values: PreferenceValues;
-  record: PreferenceRecord;
-  syncInfo: SyncInfo;
-  setTheme: (theme: Theme) => void;
-  setLanguage: (language: LanguageCode) => void;
-  setFontSize: (size: number) => void;
-  setPreference: <K extends PreferenceKey>(key: K, value: PreferenceValues[K]) => void;
-  reset: () => void;
-}
-
-const PreferencesContext = createContext<PreferencesContextValue | null>(null);
+import {
+  PreferencesContext,
+  type PreferencesContextValue,
+} from "./PreferencesContext";
+import type { PreferenceRecord, SyncInfo } from "./types";
 
 export function PreferencesProvider({ children }: { children: ReactNode }) {
   const engine = useMemo(() => getPreferencesEngine(), []);
@@ -40,8 +17,6 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     const unsubscribeSync = engine.subscribeSync(setSyncInfo);
 
     engine.start();
-    setRecord(engine.getSnapshot());
-    setSyncInfo(engine.getSyncInfo());
 
     return () => {
       unsubscribeState();
@@ -65,12 +40,4 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
   );
 
   return <PreferencesContext.Provider value={value}>{children}</PreferencesContext.Provider>;
-}
-
-export function usePreferences(): PreferencesContextValue {
-  const context = useContext(PreferencesContext);
-  if (!context) {
-    throw new Error("usePreferences must be used inside PreferencesProvider");
-  }
-  return context;
 }

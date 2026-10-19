@@ -4,7 +4,7 @@ import type { LucideIcon } from "lucide-react";
 import { BookOpenText, LayoutDashboard, SlidersHorizontal } from "lucide-react";
 
 import { createTranslator, type TranslationKey } from "../preferences/i18n";
-import { usePreferences } from "../preferences/PreferencesProvider";
+import { usePreferences } from "../preferences/PreferencesContext";
 import type { RouteId } from "./PageHeader";
 
 interface NavItem {
