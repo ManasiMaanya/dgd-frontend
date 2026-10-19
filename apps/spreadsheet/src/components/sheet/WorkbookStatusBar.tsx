@@ -1,4 +1,3 @@
-import { CELL_COUNT } from "../../spreadsheet/types";
 import { formatRange } from "../../spreadsheet/coordinates";
 import type { SheetState } from "../../spreadsheet/useSheetState";
 import type { Workbook } from "../../spreadsheet/workbook";
@@ -35,8 +34,6 @@ export function WorkbookStatusBar({ workbook, state }: WorkbookStatusBarProps) {
       <span className="status-item">
         Max <strong className="mono">{formatStat(stats.max)}</strong>
       </span>
-      <span className="status-item status-spacer" />
-      <span className="status-item muted mono">{CELL_COUNT.toLocaleString("en-US")} cells virtualized</span>
     </div>
   );
 }

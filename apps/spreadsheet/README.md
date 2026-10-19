@@ -95,7 +95,7 @@ apps/spreadsheet/
       useWorkbook.ts             # React binding for the Workbook
       useSheetState.ts           # selection / editing state machine
     components/
-      AppShell.tsx, Sidebar.tsx, PageHeader.tsx, Panel.tsx
+      AppShell.tsx, TopNav.tsx, PageHeader.tsx, Panel.tsx
       sheet/                     # SheetGrid, FormulaBar, SheetToolbar,
                                  # DiagnosticsPanel, WorkbookStatusBar
     pages/                       # WorkbookPage, FormulaAtlasPage, NotesPage

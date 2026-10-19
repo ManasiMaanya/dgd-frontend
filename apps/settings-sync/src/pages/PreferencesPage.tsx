@@ -33,7 +33,6 @@ export function PreferencesPage() {
   return (
     <>
       <PageHeader
-        eyebrow={t("prefs.eyebrow")}
         title={t("prefs.title")}
         subtitle={t("prefs.subtitle")}
         actions={

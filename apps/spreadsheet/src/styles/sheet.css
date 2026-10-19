@@ -368,10 +368,6 @@
   color: var(--ink-strong);
 }
 
-.status-spacer {
-  flex: 1;
-}
-
 /* -- diagnostics & shortcuts -------------------------------------------- */
 
 .workbook-lower {

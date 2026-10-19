@@ -10,25 +10,21 @@ interface NotesPageProps {
 const NOTES = [
   {
     icon: RadioTower,
-    kicker: "Transport",
     title: "Two lanes, one source of truth",
     body: "BroadcastChannel carries updates between tabs in well under 100 ms. The storage event is the fallback when a channel cannot be opened, and every merge is persisted before it is rendered.",
   },
   {
     icon: Clock3,
-    kicker: "Ordering",
     title: "Lamport clocks, field by field",
     body: "Each preference owns a logical timestamp. A local edit advances the clock; an incoming edit only wins when its stamp is greater. Ties resolve by actor ID, so every tab makes the same decision.",
   },
   {
     icon: GitMerge,
-    kicker: "Convergence",
     title: "Last writer wins, deterministically",
     body: "Concurrent edits to different fields both survive. Concurrent edits to the same field compare (clock, actor) pairs. There is no server to arbitrate and no dependence on wall-clock time.",
   },
   {
     icon: Database,
-    kicker: "Boot",
     title: "No flash, even on a cold start",
     body: "A tiny pre-paint script reads localStorage and applies theme, language, and type size before React mounts. New tabs arrive in the correct state on their very first frame.",
   },
@@ -38,7 +34,6 @@ export function NotesPage({ onNavigate }: NotesPageProps) {
   return (
     <>
       <PageHeader
-        eyebrow="Task 01 · Technical notes"
         title="How the sync engine thinks."
         subtitle="The short version of the architecture behind the settings desk: browser-native transport, logical ordering, field-level merging, and a boot path designed around the first painted frame."
         actions={
@@ -50,7 +45,7 @@ export function NotesPage({ onNavigate }: NotesPageProps) {
       />
 
       <div className="notes-grid">
-        {NOTES.map((note, index) => {
+        {NOTES.map((note) => {
           const Icon = note.icon;
           return (
             <article className="panel note-card" key={note.title}>
@@ -58,9 +53,7 @@ export function NotesPage({ onNavigate }: NotesPageProps) {
                 <span className="note-icon">
                   <Icon aria-hidden="true" />
                 </span>
-                <span className="note-index">0{index + 1}</span>
               </div>
-              <p className="panel-kicker">{note.kicker}</p>
               <h2 className="panel-title">{note.title}</h2>
               <p className="panel-description">{note.body}</p>
             </article>
@@ -71,7 +64,6 @@ export function NotesPage({ onNavigate }: NotesPageProps) {
       <section className="panel merge-panel">
         <div className="panel-head">
           <div>
-            <p className="panel-kicker">Conflict resolution</p>
             <h2 className="panel-title">A worked example</h2>
           </div>
           <span className="badge badge-butter">LWW / field</span>

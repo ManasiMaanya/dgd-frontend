@@ -1,9 +1,7 @@
-import { useEffect, useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
-import { Menu, X } from "lucide-react";
-
-import { Sidebar } from "./Sidebar";
 import type { RouteId } from "./PageHeader";
+import { TopNav } from "./TopNav";
 
 interface AppShellProps {
   current: RouteId;
@@ -12,63 +10,11 @@ interface AppShellProps {
 }
 
 export function AppShell({ current, onNavigate, children }: AppShellProps) {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const navigate = (route: RouteId) => {
-    setMenuOpen(false);
-    onNavigate(route);
-  };
-
-  useEffect(() => {
-    if (!menuOpen) return;
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMenuOpen(false);
-    };
-
-    document.addEventListener("keydown", onKeyDown);
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen]);
-
   return (
     <div className="app-shell">
-      <Sidebar
-        current={current}
-        onNavigate={navigate}
-        onClose={() => setMenuOpen(false)}
-        mobileOpen={menuOpen}
-      />
-
-      <button
-        className={`sidebar-scrim${menuOpen ? " is-visible" : ""}`}
-        type="button"
-        aria-label="Close navigation"
-        tabIndex={menuOpen ? 0 : -1}
-        onClick={() => setMenuOpen(false)}
-      />
+      <TopNav current={current} onNavigate={onNavigate} />
 
       <main className="app-main">
-        <div className="mobile-bar">
-          <button className="mobile-brand" type="button" onClick={() => navigate("home")}>
-            Atelier
-            <span>Settings</span>
-          </button>
-          <button
-            className="btn btn-ghost btn-icon"
-            type="button"
-            aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((value) => !value)}
-          >
-            {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-          </button>
-        </div>
-
         <div className="app-content page-enter" key={current}>
           {children}
         </div>

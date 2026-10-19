@@ -23,7 +23,6 @@ export function ConflictPanel({ values, record, syncInfo, t }: ConflictPanelProp
     <Panel className="conflict-panel">
       <div className="panel-head">
         <div>
-          <p className="panel-kicker">{t("conflict.kicker")}</p>
           <h2 className="panel-title">{t("conflict.title")}</h2>
           <p className="panel-description">{t("conflict.description")}</p>
         </div>

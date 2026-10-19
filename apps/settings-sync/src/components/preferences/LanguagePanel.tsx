@@ -22,7 +22,6 @@ export function LanguagePanel({ values, t, onChange }: LanguagePanelProps) {
     <Panel className="language-panel">
       <div className="panel-head">
         <div>
-          <p className="panel-kicker">{t("language.kicker")}</p>
           <h2 className="panel-title">{t("language.title")}</h2>
         </div>
         <Globe2 className="panel-corner-icon" aria-hidden="true" />

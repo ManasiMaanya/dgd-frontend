@@ -14,7 +14,7 @@ Atelier Settings synchronizes theme, interface language, and reading size across
 - **No theme flash**: a pre-paint inline script applies theme, language, and type size before React mounts.
 - **Live presence and latency**: heartbeat, ping/pong, connected-tab count, transport status, and measured round-trip latency.
 - **Six interface languages**, defaulting to English: English, Spanish, French, German, Hindi, and Japanese.
-- **Responsive layout** matching the supplied reference: graph-paper canvas, coffee sidebar, powder-blue accents, display serif, and generous card spacing.
+- **Responsive layout** matching the supplied reference: graph-paper canvas, coffee-and-cream top bar, powder-blue accents, display serif, and generous card spacing.
 - **Unit-tested merge logic**, including concurrent-edit convergence in both merge directions.
 - **Accessibility**: semantic controls, visible focus states, `aria-live` sync announcements, keyboard-operable UI, and reduced-motion support.
 
@@ -53,7 +53,7 @@ The current suite covers deterministic merge ordering, concurrent edits across d
 ## Manual cross-tab checklist
 
 1. Open the app in two tabs at the same origin.
-2. Confirm the sidebar shows **Live · 2** and the sync card reports two connected tabs.
+2. Confirm the sync card reports two connected tabs and its **Live** pill is lit.
 3. Toggle dark mode in tab A. Tab B should update in well under 100 ms with no refresh.
 4. Change the language in tab B. Navigation and preferences copy should update in tab A.
 5. Drag the font slider in either tab. The other tab should track the size in real time.
@@ -67,7 +67,7 @@ The current suite covers deterministic merge ordering, concurrent edits across d
 src/
   components/
     AppShell.tsx              Responsive application frame
-    Sidebar.tsx               Navigation and live presence indicator
+    TopNav.tsx                Top navigation bar
     PageHeader.tsx            Shared page header
     Panel.tsx                 Surface primitive
     preferences/

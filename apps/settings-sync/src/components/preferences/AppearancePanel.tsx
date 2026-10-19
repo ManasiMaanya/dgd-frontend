@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import { Check, Moon, Save, Sun, Zap } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 
 import type { Translator } from "../../preferences/i18n";
 import {
@@ -34,10 +34,9 @@ export function AppearancePanel({
   } as CSSProperties;
 
   return (
-    <Panel className="appearance-panel">
+    <Panel>
       <div className="panel-head">
         <div>
-          <p className="panel-kicker">{t("appearance.kicker")}</p>
           <h2 className="panel-title">{t("appearance.title")}</h2>
           <p className="panel-description">{t("appearance.description")}</p>
         </div>
@@ -119,23 +118,7 @@ export function AppearancePanel({
       </div>
 
       <div className="font-preview">
-        <span className="font-preview-label">{t("appearance.preview")}</span>
         <p style={{ fontSize: `${values.fontSize}px` }}>{t("appearance.preview")}</p>
-      </div>
-
-      <div className="appearance-meta">
-        <span>
-          <Save aria-hidden="true" />
-          {t("conflict.noFlash")}
-        </span>
-        <span>
-          <Zap aria-hidden="true" />
-          {t("sync.target")}
-        </span>
-        <span>
-          <Check aria-hidden="true" />
-          {t("sync.saved")}
-        </span>
       </div>
     </Panel>
   );

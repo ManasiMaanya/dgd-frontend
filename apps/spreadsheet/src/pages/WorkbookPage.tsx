@@ -34,7 +34,6 @@ export function WorkbookPage({ onNavigate }: WorkbookPageProps) {
   return (
     <>
       <PageHeader
-        eyebrow="Task 02 · Spreadsheet engine"
         title="Formula Studio."
         subtitle="A 13,000-cell virtualized workbook with a hand-written parser, dependency-aware recalculation, and diagnostics that point at the exact character."
         actions={
@@ -59,7 +58,6 @@ export function WorkbookPage({ onNavigate }: WorkbookPageProps) {
         <section className="panel shortcuts-panel">
           <div className="panel-head">
             <div>
-              <p className="panel-kicker">Gestures</p>
               <h2 className="panel-title">Keyboard and pointer.</h2>
               <p className="panel-description">
                 The grid is fully keyboard navigable, and the fill handle continues numeric series

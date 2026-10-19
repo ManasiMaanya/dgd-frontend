@@ -33,7 +33,6 @@ export function FormulaAtlasPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Task 02 · Reference"
         title="Formula Atlas."
         subtitle={`Every function implemented by the custom engine, with its signature and behaviour. ${FUNCTION_LIST.length} functions across ${FUNCTION_CATEGORIES.length} categories.`}
         actions={

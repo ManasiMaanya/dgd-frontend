@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 import { Globe2, Moon, Sun } from "lucide-react";
 
 import type { Translator } from "../../preferences/i18n";
@@ -10,7 +8,6 @@ import {
   type SyncInfo,
 } from "../../preferences/types";
 import { Panel } from "../Panel";
-import { formatClock } from "./format";
 
 interface SyncLabProps {
   values: PreferenceValues;
@@ -20,27 +17,13 @@ interface SyncLabProps {
 }
 
 export function SyncLab({ values, record, syncInfo, t }: SyncLabProps) {
-  const [now, setNow] = useState(() => Date.now());
   const activeLanguage =
     LANGUAGES.find((language) => language.code === values.language) ?? LANGUAGES[0];
-
-  useEffect(() => {
-    const timer = window.setInterval(() => setNow(Date.now()), 1000);
-    return () => window.clearInterval(timer);
-  }, []);
-
-  const lastSyncLabel = (() => {
-    if (syncInfo.lastSyncAt === null) return t("sync.never");
-    const seconds = Math.max(0, Math.round((now - syncInfo.lastSyncAt) / 1000));
-    if (seconds < 2) return t("sync.now");
-    return `${seconds}${t("common.seconds")}`;
-  })();
 
   return (
     <Panel className="sync-lab">
       <div className="panel-head">
         <div>
-          <p className="panel-kicker">{t("sync.labKicker")}</p>
           <h2 className="panel-title">{t("sync.labTitle")}</h2>
           <p className="panel-description">{t("sync.labDescription")}</p>
         </div>
@@ -107,18 +90,6 @@ export function SyncLab({ values, record, syncInfo, t }: SyncLabProps) {
         <span className="sync-rail-node is-middle" />
         <span className="sync-rail-line" />
         <span className="sync-rail-node is-end" />
-      </div>
-
-      <div className="lab-foot">
-        <span>
-          {t("sync.lastSync")}: <strong>{lastSyncLabel}</strong>
-        </span>
-        <span className="mono">
-          {t("sync.conflict")}: {t("sync.conflictValue")}
-        </span>
-        <span className="mono">
-          {formatClock(record.stamps.theme.clock, record.stamps.theme.actor)}
-        </span>
       </div>
     </Panel>
   );

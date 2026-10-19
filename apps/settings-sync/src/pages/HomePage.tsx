@@ -11,7 +11,6 @@ export function HomePage({ onNavigate }: HomePageProps) {
   return (
     <>
       <PageHeader
-        eyebrow="GDG Tech Wildcard · Frontend"
         title="Preferences, in perfect step."
         subtitle="A small settings desk with a serious synchronization engine. Change a preference once and every open tab follows — instantly, deterministically, and without a flash of the wrong theme."
         actions={
@@ -40,7 +39,6 @@ export function HomePage({ onNavigate }: HomePageProps) {
               <Radio aria-hidden="true" size={11} />
               Live state
             </span>
-            <span className="task-card-index">TASK / 01</span>
           </div>
 
           <h2>One setting. Every tab.</h2>
@@ -87,7 +85,6 @@ export function HomePage({ onNavigate }: HomePageProps) {
         >
           <div className="task-card-top">
             <span className="badge badge-butter">Under the hood</span>
-            <span className="task-card-index">READ / 02</span>
           </div>
 
           <h2>Deterministic by design.</h2>

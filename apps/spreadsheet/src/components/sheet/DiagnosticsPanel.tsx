@@ -19,7 +19,6 @@ export function DiagnosticsPanel({ workbook, state }: DiagnosticsPanelProps) {
     <section className="panel diagnostics-panel">
       <div className="panel-head">
         <div>
-          <p className="panel-kicker">Formula diagnostics</p>
           <h2 className="panel-title">
             {active ? "Something needs attention." : "Every formula reads cleanly."}
           </h2>

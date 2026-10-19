@@ -17,13 +17,6 @@ interface SyncPanelProps {
 }
 
 export function SyncPanel({ values, record, syncInfo, t, onOpenTab }: SyncPanelProps) {
-  const transportLabel =
-    syncInfo.transport === "broadcast-channel"
-      ? t("sync.broadcast")
-      : syncInfo.transport === "storage"
-        ? t("sync.storage")
-        : t("sync.local");
-
   const latencyLabel = syncInfo.latencyMs === null ? "—" : `${syncInfo.latencyMs} ms`;
 
   const savedLabel = new Intl.DateTimeFormat(values.language, {
@@ -36,7 +29,6 @@ export function SyncPanel({ values, record, syncInfo, t, onOpenTab }: SyncPanelP
     <Panel className="sync-panel">
       <div className="panel-head">
         <div>
-          <p className="panel-kicker">{t("sync.kicker")}</p>
           <h2 className="panel-title">{t("sync.title")}</h2>
         </div>
         <span className="live-pill">
@@ -80,16 +72,10 @@ export function SyncPanel({ values, record, syncInfo, t, onOpenTab }: SyncPanelP
         </div>
       </div>
 
-      <div className="sync-transport">
-        <span>{t("sync.transport")}</span>
-        <strong>{transportLabel}</strong>
-      </div>
-
       <button className="btn btn-blue sync-open" type="button" onClick={onOpenTab}>
         <ExternalLink aria-hidden="true" />
         {t("common.openTab")}
       </button>
-      <p className="sync-hint">{t("sync.openHint")}</p>
     </Panel>
   );
 }

@@ -44,7 +44,6 @@ export function NotesPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Task 02 · Technical notes"
         title="How the workbook thinks."
         subtitle="A short tour of the tokenizer, recursive-descent parser, evaluator, dependency graph, and circular-reference handling — all written directly in TypeScript."
       />
@@ -55,7 +54,6 @@ export function NotesPage() {
             <span className="note-icon">
               <Sigma aria-hidden="true" />
             </span>
-            <span className="note-index">01</span>
           </div>
           <h2 className="panel-title">Tokenizer &amp; parser</h2>
           <p className="panel-description">
@@ -73,7 +71,6 @@ export function NotesPage() {
             <span className="note-icon is-pink">
               <GitBranch aria-hidden="true" />
             </span>
-            <span className="note-index">02</span>
           </div>
           <h2 className="panel-title">Dependency graph</h2>
           <p className="panel-description">
@@ -92,7 +89,6 @@ export function NotesPage() {
             <span className="note-icon is-pink">
               <TriangleAlert aria-hidden="true" />
             </span>
-            <span className="note-index">03</span>
           </div>
           <h2 className="panel-title">Circular references</h2>
           <p className="panel-description">
@@ -110,7 +106,6 @@ export function NotesPage() {
             <span className="note-icon">
               <ScanSearch aria-hidden="true" />
             </span>
-            <span className="note-index">04</span>
           </div>
           <h2 className="panel-title">Error diagnostics</h2>
           <p className="panel-description">
@@ -128,7 +123,6 @@ export function NotesPage() {
           <span className="note-icon">
             <ListTree aria-hidden="true" />
           </span>
-          <span className="note-index">05</span>
         </div>
         <h2 className="panel-title">Virtualization and performance</h2>
         <div className="notes-columns">
