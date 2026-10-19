@@ -1,20 +1,23 @@
-import type { LucideIcon } from "lucide-react";
+import { useMemo } from "react";
 
+import type { LucideIcon } from "lucide-react";
 import { BookOpenText, LayoutDashboard, SlidersHorizontal } from "lucide-react";
 
+import { createTranslator, type TranslationKey } from "../preferences/i18n";
+import { usePreferences } from "../preferences/PreferencesProvider";
 import type { RouteId } from "./PageHeader";
 
 interface NavItem {
   id: RouteId;
-  label: string;
+  labelKey: TranslationKey;
   index: string;
   icon: LucideIcon;
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { id: "home", label: "Overview", index: "00", icon: LayoutDashboard },
-  { id: "preferences", label: "Preferences", index: "01", icon: SlidersHorizontal },
-  { id: "notes", label: "Field Notes", index: "02", icon: BookOpenText },
+  { id: "home", labelKey: "nav.overview", index: "00", icon: LayoutDashboard },
+  { id: "preferences", labelKey: "nav.preferences", index: "01", icon: SlidersHorizontal },
+  { id: "notes", labelKey: "nav.notes", index: "02", icon: BookOpenText },
 ];
 
 interface SidebarProps {
@@ -25,6 +28,9 @@ interface SidebarProps {
 }
 
 export function Sidebar({ current, mobileOpen, onNavigate, onClose }: SidebarProps) {
+  const { values, syncInfo } = usePreferences();
+  const t = useMemo(() => createTranslator(values.language), [values.language]);
+
   return (
     <aside
       className={`sidebar${mobileOpen ? " is-open" : ""}`}
@@ -39,7 +45,7 @@ export function Sidebar({ current, mobileOpen, onNavigate, onClose }: SidebarPro
           <span className="brand-sub">Settings</span>
         </button>
 
-        <p className="nav-label">Workspace</p>
+        <p className="nav-label">{t("nav.workspace")}</p>
         <nav>
           <ul className="nav-list">
             {NAV_ITEMS.map((item) => {
@@ -56,7 +62,7 @@ export function Sidebar({ current, mobileOpen, onNavigate, onClose }: SidebarPro
                     }}
                   >
                     <Icon aria-hidden="true" />
-                    <span>{item.label}</span>
+                    <span>{t(item.labelKey)}</span>
                     <span className="nav-index">{item.index}</span>
                   </button>
                 </li>
@@ -68,14 +74,19 @@ export function Sidebar({ current, mobileOpen, onNavigate, onClose }: SidebarPro
         <div className="sidebar-foot">
           <div className="sidebar-rule" />
           <div className="sidebar-meta">
-            <span>Local first</span>
+            <span>{t("sidebar.localFirst")}</span>
             <span>v1.0</span>
           </div>
           <div className="sidebar-status">
-            <span className="sidebar-status-dot" aria-hidden="true" />
-            <span>BroadcastChannel</span>
+            <span
+              className={`sidebar-status-dot${syncInfo.peerCount > 1 ? " is-pulsing" : ""}`}
+              aria-hidden="true"
+            />
+            <span>
+              {t("nav.live")} · {syncInfo.peerCount}
+            </span>
           </div>
-          <p className="sidebar-signature">Preferences that follow you.</p>
+          <p className="sidebar-signature">{t("sidebar.tagline")}</p>
         </div>
       </div>
     </aside>
