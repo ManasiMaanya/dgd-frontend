@@ -10,6 +10,37 @@
     />
     <meta name="theme-color" content="#4a2b18" />
     <title>Atelier · Settings</title>
+    <script>
+      // Runs before the first paint so a restored dark theme never flashes light.
+      (function () {
+        try {
+          var raw = localStorage.getItem("atelier.settings.v1");
+          if (!raw) return;
+          var record = JSON.parse(raw);
+          var values = record && record.values;
+          if (!values) return;
+
+          document.documentElement.dataset.theme =
+            values.theme === "dark" ? "dark" : "light";
+          if (typeof values.language === "string") {
+            document.documentElement.lang = values.language;
+          }
+          var size = Number(values.fontSize);
+          if (Number.isFinite(size) && size >= 13 && size <= 20) {
+            document.documentElement.style.setProperty("--app-font-size", size + "px");
+          }
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) {
+            meta.setAttribute(
+              "content",
+              values.theme === "dark" ? "#1b1612" : "#4a2b18",
+            );
+          }
+        } catch (_) {
+          /* Corrupt storage must never block the app from booting. */
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

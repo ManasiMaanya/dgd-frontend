@@ -9,9 +9,12 @@ import "./styles/base.css";
 import "./styles/app.css";
 
 import App from "./App";
+import { PreferencesProvider } from "./preferences/PreferencesProvider";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <PreferencesProvider>
+      <App />
+    </PreferencesProvider>
   </StrictMode>,
 );
