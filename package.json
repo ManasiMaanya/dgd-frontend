@@ -1,0 +1,15 @@
+{
+  "name": "dgd-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Two independent TypeScript frontend projects for the GDG Tech Wildcard briefs.",
+  "scripts": {
+    "dev:settings": "npm --prefix apps/settings-sync run dev",
+    "dev:spreadsheet": "npm --prefix apps/spreadsheet run dev",
+    "build:settings": "npm --prefix apps/settings-sync run build",
+    "build:spreadsheet": "npm --prefix apps/spreadsheet run build",
+    "build": "npm run build:settings && npm run build:spreadsheet",
+    "test": "npm --prefix apps/settings-sync test && npm --prefix apps/spreadsheet test",
+    "install:all": "npm --prefix apps/settings-sync install && npm --prefix apps/spreadsheet install"
+  }
+}
