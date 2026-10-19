@@ -5,7 +5,7 @@ This repository contains two separate, independently runnable frontend projects 
 | Project | Brief | Palette | Directory |
 | --- | --- | --- | --- |
 | **Atelier Settings** | Multi-tab settings synchronization | Coffee + powder blue | [`apps/settings-sync`](apps/settings-sync) |
-| **Studio Sheet** | Spreadsheet with a custom formula engine | Pink + teal | [`apps/spreadsheet`](apps/spreadsheet) |
+| **Folio · Formula Studio** | Spreadsheet with a custom formula engine | Blush pink + teal | [`apps/spreadsheet`](apps/spreadsheet) |
 
 Each application has its own `package.json`, Vite configuration, source tree, documentation, and production build. There is no shared runtime code between them.
 
